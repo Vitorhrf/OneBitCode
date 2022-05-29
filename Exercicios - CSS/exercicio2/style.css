@@ -1,0 +1,32 @@
+.data{
+    color: #008080;
+    font-family: "Roboto";
+    font-weight: 600;
+}
+.post{
+    background-color: #fffafa;
+}
+h1{
+    font-family: "Montserrat";
+}
+article{
+    margin: 0px auto 0px auto;
+    width: 70%;
+    padding: 10px 40px 10px 40px;
+}
+spam{
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+hr{
+    margin:40px -40px 20px -40px;
+}
+body{
+    margin: 0px;
+}
+#last{
+    padding-bottom: 40px;
+}
+#first{
+    padding-top: 40px;
+}
