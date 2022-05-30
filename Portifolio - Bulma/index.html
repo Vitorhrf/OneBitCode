@@ -39,11 +39,11 @@
             </div>
         </nav>
     </header>
-    
+
     <!--Formata a secção com um espaçamento predefinido do framework-->
     <section class="section">
         <!--Card na lateral esquerda-->
-        <div class="columns is-multiline">
+        <div class="columns">
             <div class="column is-one-quarter">
                 <div class="card">
                     <div class="card-image">
@@ -55,7 +55,9 @@
                         <div class="media">
                             <div class="media-content">
                                 <p class="title is-4">Vítor Henrique</p>
-                                <button class="button is-dark is-small is-rounded" id="javascript">Javascript Full Stack Developer</button>
+                                <button class="button is-dark is-small is-rounded" id="javascript">Javascript Full Stack
+                                    Developer
+                                </button>
                                 <br><br>
                                 <p class="subtitle is-6">(00) 0 0000-0000</p>
                                 <p class="subtitle is-6">name@email.com</p>
@@ -66,28 +68,89 @@
             </div>
             <!--Conteúdo central-->
             <div class="column is-three-quarter">
-                <div class="card" >
-                    <div class="card-content" id="sobre-mim">
-                      <strong>Sobre mim</strong>
+                <!--Primeiro card-->
+                <div class="card">
+                    <div class="card-content" id="titulo-card">
+                        <strong>Sobre mim</strong>
                     </div>
                     <footer class="card-footer" id="footer-card">
-                        <p class="card-footer-item">
-                          Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                        <p class="card-footer-item formacao">
+                            Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi
+                            porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
                         </p>
-                    </div>
+                    </footer>
                 </div>
-                <div class="card" >
-                    <div class="card-content" id="sobre-mim">
-                      <strong>Sobre mim</strong>
+                <br>
+                <!--Segundo card-->
+                <div class="card">
+                    <div class="card-content" id="titulo-card">
+                        <strong>Experiências</strong>
                     </div>
-                    <footer class="card-footer" id="footer-card">
-                        <p class="card-footer-item">
-                          Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
-                        </p>
+                    <footer class="card-footer elemento-first">
+                        <div class="media">
+                            <div class="media-left  imagem-footer">
+                              <figure class="image is-128x128">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder image">
+                              </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-5 is-bold is-spaced titulo-first">Javascript Developer <button class="button is-dark is-small empresas-button">
+                                    Empresa Chamada X
+                                    </button>
+                                </p>
+                                <p class="subtitle is-6">Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.</p>
+                              
+                            </div>
+                        </div>
+                    </footer>
+                    <hr id="hr-footer">
+                    <footer class="card-footer elemento-second">
+                        <div class="media">
+                            <div class="media-left  imagem-footer">
+                              <figure class="image is-128x128">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Placeholder image">
+                              </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-5 is-bold is-spaced">Ruby on Rails Developer <button class="button is-dark is-small empresas-button">
+                                    Empresa Chamada Y
+                                    </button>
+                                </p>
+                                <p class="subtitle is-6">Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.</p>
+                              
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <br>
+                <!--Terceiro card-->
+                <div class="card">
+                    <div class="card-content" id="titulo-card">
+                        <strong>Formação</strong>
                     </div>
+                    <footer class="card-footer elemento-first">
+                        <div class="media">
+                            <div class="media-content formacao">
+                                <p class="title is-5 is-bold is-spaced titulo-first">Javascript Full Stack em 8 Semanas</p>
+                                <p class="subtitle is-6">Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.</p>
+                              
+                            </div>
+                        </div>
+                    </footer>
+                    <hr id="hr-footer">
+                    <footer class="card-footer elemento-second">
+                        <div class="media">
+                            <div class="media-content formacao">
+                                <p class="title is-5 is-bold is-spaced">HTML + CSS completo</p>
+                                <p class="subtitle is-6">Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.</p>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
             </div>
-            
+        </div>
+
         </div>
     </section>
 </body>

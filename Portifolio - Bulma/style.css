@@ -1,9 +1,33 @@
 #javascript{
     font-size: 14px;
+    font-weight: 600;
 }
-#sobre-mim{
+#titulo-card{
     padding: 10px;
 }
-#footer-card{
-    padding: 10px 8px 10px 8px;
+.elemento-first{
+    padding: 10px 20px 10px 8px;
+    margin: 1px;
+    border-bottom: 0px;
+}
+.elemento-second{
+    padding: 10px 20px 10px 8px;
+    margin: 1px;
+    border-top: 0px;
+}
+.empresas-button{
+    padding: 0px 5px 0px 5px;
+    font-weight: 600;
+}
+#hr-footer{
+    margin: 10px 20px 10px 20px;
+}
+.imagem-footer{
+    margin: 20px 70px 20px 40px;
+}
+.titulo-first{
+    margin-top: 15px;
+}
+.formacao{
+    margin: 1px 1px 10px 10px;
 }
