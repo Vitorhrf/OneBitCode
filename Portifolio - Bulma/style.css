@@ -1,33 +1,23 @@
 #javascript{
     font-size: 14px;
     font-weight: 600;
-}
-#titulo-card{
-    padding: 10px;
-}
-.elemento-first{
-    padding: 10px 20px 10px 8px;
-    margin: 1px;
-    border-bottom: 0px;
-}
-.elemento-second{
-    padding: 10px 20px 10px 8px;
-    margin: 1px;
-    border-top: 0px;
-}
-.empresas-button{
-    padding: 0px 5px 0px 5px;
-    font-weight: 600;
+    padding: 3px 10px 3px 10px;
 }
 #hr-footer{
     margin: 10px 20px 10px 20px;
-}
-.imagem-footer{
-    margin: 20px 70px 20px 40px;
 }
 .titulo-first{
     margin-top: 15px;
 }
 .formacao{
     margin: 1px 1px 10px 10px;
+}
+#botao-enviar{
+    margin: 15px 0px 10px 0px;
+}
+.margem-content{
+    width: 100%;
+}
+.height-navbar{
+    height: 100%;
 }
