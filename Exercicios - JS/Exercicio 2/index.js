@@ -1,5 +1,5 @@
 //Exercicio 2.1
-/*alert("Exercicio 2.1")
+alert("Exercicio 2.1")
 let nomeV1 = prompt("Digite o nome do primeiro veiculo")
 let velV1 = prompt("Digite a velocidade do "+nomeV1)
 let nomeV2 = prompt("Digite o nome do segundo veiculo")
@@ -10,7 +10,7 @@ velV2 = parseFloat(velV2)
 velV1 === velV2?resultado = nomeV1+" e "+nomeV2+" tem velocidades iguais!":
 velV1 > velV2?resultado = nomeV1+" é mais rapido!":
 resultado = nomeV2+" é mais rapido!"
-alert(resultado)*/
+alert(resultado)
 //Exercicio 2.2
 alert("Exercicio 2.2")
 let nomeP1 = prompt("Digite o nome do primeiro personagem:")
