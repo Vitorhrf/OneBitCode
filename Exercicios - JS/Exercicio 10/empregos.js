@@ -41,6 +41,35 @@ function cadastrarVaga(){
     }
 }
 
+function cadastrarCandidato(){
+    let candidato = ""
+    let indice
+    do{
+        indice = Number(prompt("Digite o indice da vaga:"))
+        if(vagas[indice] && indice !== undefined){
+            candidato = prompt("Digite o nome do candidato:")
+            if(confirm("Deseja confirmar as informações inseridas?\n\nIndice da vaga: "+indice+"\nNome do candidato: "+candidato)){
+                vagas[indice].candidatos.push(candidato)
+                alert("Candidato cadastrado com sucesso!")
+            }else{
+                alert("Retornando ao menu!")
+            }
+            break
+        }
+        else if(indice === -1){
+            alert("Retornando ao menu!")
+            break
+        }
+        else if(indice === -2){
+            alert(listarVagas())
+        }
+        else{
+            alert("Digite um valor valido!\n\nCaso queira retornar ao menu insira o valor '-1'\nCaso deseje rever a lista das vagas digite '-2'")
+    
+        }
+    }while(indice !== -1);
+}
+
 do {
     opcao = menu()
     switch (opcao) {
@@ -54,7 +83,7 @@ do {
             
         break;
         case 4:
-            
+            cadastrarCandidato()
         break;
         case 5:
             
