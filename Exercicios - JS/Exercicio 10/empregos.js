@@ -17,13 +17,14 @@ function menu(){
 
 function listarVagas(){
     let lista = ""
-    lista += vagas.map(function (elemento,index){
-        return "Indice: "+index+"\nNome da vaga: "+elemento.nome+"\nQuantidade de candidatos inscritos: "+elemento.candidatos.length+"\n\n"
-    })
-    if(lista!==""){
-        return lista
-    }else{
-        return "No momento não possui vagas cadastradas no sistema!"
+    if(vagas.length===0){
+        return alert("No momento não possuimos vagas disponiveis!")
+    }
+    else if(vagas.length>0){
+        vagas.forEach(function (elemento,index){
+            lista += "Indice: "+index+"\nNome da vaga: "+elemento.nome+"\nQuantidade de candidatos inscritos: "+elemento.candidatos.length+"\n\n"
+        })
+        return alert(lista)
     }
 }
 
@@ -44,9 +45,12 @@ function cadastrarVaga(){
 function cadastrarCandidato(){
     let candidato = ""
     let indice
+    if(vagas.length===0){
+        return alert("No momento não possuimos vagas disponiveis!")
+    }
     do{
         indice = Number(prompt("Digite o indice da vaga:"))
-        if(vagas[indice] && indice !== undefined){
+        if(indice !== undefined && vagas[indice]){
             candidato = prompt("Digite o nome do candidato:")
             if(confirm("Deseja confirmar as informações inseridas?\n\nIndice da vaga: "+indice+"\nNome do candidato: "+candidato)){
                 vagas[indice].candidatos.push(candidato)
@@ -70,23 +74,76 @@ function cadastrarCandidato(){
     }while(indice !== -1);
 }
 
+function visualizarVagas(){
+    let nomeCandidatos
+    let indice = 0
+    if(vagas.length===0){
+        return alert("No momento não possuimos vagas disponiveis!")
+    }
+    do{ 
+        indice = Number(prompt("Digite o indice da vaga que deseja visualizar:"))
+        if(vagas[indice] !== undefined){
+            nomeCandidatos = ""
+            vagas[indice].candidatos.forEach(function (elemento){
+                nomeCandidatos += "'"+elemento+"' "
+            });  
+            return alert("Indice: "+indice+"\nNome da vaga: "+vagas[indice].nome+"\nDescrição da vaga: "+vagas[indice].descricao+"\nData limite: "+vagas[indice].dataLimite+"\nQuantidade de candidatos: "+vagas[indice].candidatos.length+"\nCandidatos: "+nomeCandidatos)
+        }
+        else if(indice === -1){
+            alert("Retornando ao menu inicial")
+        }
+        else{
+            alert("O indice digitado não existe!\nSe deseja retornar ao menu insira '-1'")
+        }
+    }while(indice !== -1);
+}
+
+function excluirVaga(){
+    let indice = 0
+    if(vagas.length===0){
+        return alert("No momento não possuimos vagas disponiveis!")
+    }
+    do{ 
+        indice = Number(prompt("Digite o indice da vaga que deseja excluir:"))
+        if(vagas[indice] !== undefined){
+            nomeCandidatos = ""
+            vagas[indice].candidatos.forEach(function (elemento){
+                nomeCandidatos += "'"+elemento+"' "
+            });  
+            if(confirm("Deseja confirmar a exclusão dessa vaga?\n\nIndice: "+indice+"\nNome da vaga: "+vagas[indice].nome+"\nDescrição da vaga: "+vagas[indice].descricao+"\nData limite: "+vagas[indice].dataLimite+"\nQuantidade de candidatos: "+vagas[indice].candidatos.length+"\nCandidatos: "+nomeCandidatos)===true){
+                vagas.splice(indice,1)
+                return alert("Vaga excluida com sucesso!")
+            }
+            else{
+                indice = -1
+            }
+        }
+        else if(indice === -1){
+            alert("Retornando ao menu inicial")
+        }
+        else{
+            alert("O indice digitado não existe!\nSe deseja retornar ao menu insira '-1'")
+        }
+    }while(indice !== -1);
+}
+
 do {
     opcao = menu()
     switch (opcao) {
         case 1:
-            alert(listarVagas())
+            listarVagas()
         break;
         case 2:
             cadastrarVaga()
         break;
         case 3:
-            
+            visualizarVagas()
         break;
         case 4:
             cadastrarCandidato()
         break;
         case 5:
-            
+            excluirVaga()
         break;
         case 6:
             alert("Encerrando o sistema...")
