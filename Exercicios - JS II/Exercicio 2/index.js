@@ -1,3 +1,19 @@
+function createLabel(text, htmlFor){ //Prototipo para gerar label 
+    const label = document.createElement('label')
+    label.htmlFor = htmlFor
+    label.innerHTML = text
+    return label
+}
+function createInput(id, value, name, type = "text", be){ //Prototipo para gerar input
+    const input = document.createElement('input')
+    input.id = id
+    input.value = value
+    input.name = name
+    input.type = type
+    return input
+}
+
+
 const form = document.getElementById("form-register") //Recebe o form inteiro
 const botao = document.getElementById("add-tecnology") //Recebe o botao de adicionar tecnologia
 const sectionTec = document.getElementById('tecnologies') //Recebe o elemento Section
@@ -9,58 +25,30 @@ botao.addEventListener('click', function(ev){ //Botão para adicionar tecnologia
     const divTec = document.createElement('div')//Cria uma div e atribui ela como valor para divTec
     divTec.id = "ID"+contador //Define o id da div para cada vez que adicionar pelo botão, para que os elementos e valores sejam separados
 
-    const labelTec = document.createElement('label')
-    labelTec.innerText = "Nome da tecnologia: "
-    labelTec.htmlFor = 'input-tecnologia'
+    const labelTec = createLabel("Nome da tecnologia", "input-tecnologia")
+    const inputTec = createInput('input-tecnologia',null,'input-tecnologia')
 
-    const inputTec = document.createElement('input')
-    inputTec.id ='input-tecnologia'
+    const idRadio1 = 'radioList1'+contador//Possui '+contador' para separar os radios dessa div das outras geradas
+    const radioList1 = createInput(idRadio1, '0 - 2 anos', 'periodo'+contador,'radio')
+    const labelRadioList1 = createLabel("0 - 2 anos", idRadio1)
 
-    const radioList1 = document.createElement('input')
-    radioList1.type = 'radio'
-    radioList1.name = 'periodo'+contador //Possui '+contador' para separar os radios dessa div das outras geradas
-    radioList1.id = 'radioList1'+contador //Possui '+contador' para separar o target do label das demais
-    radioList1.value = '0 - 2 anos'
+    const idRadio2 = 'radioList2'+contador
+    const radioList2 = createInput(idRadio2, '3 - 4 anos', 'periodo'+contador,'radio')
+    const labelRadioList2 = createLabel("3 - 4 anos", idRadio2)
 
-    const labelRadioList1 = document.createElement('label')
-    labelRadioList1.htmlFor = 'radioList1'+contador
-    labelRadioList1.innerText = '0 - 2 anos'
-
-    const radioList2 = document.createElement('input')
-    radioList2.type = 'radio'
-    radioList2.name = 'periodo'+contador
-    radioList2.id = 'radioList2'+contador
-    radioList2.value = '3 - 4 anos'
-
-    const labelRadioList2 = document.createElement('label')
-    labelRadioList2.htmlFor = 'radioList2'+contador
-    labelRadioList2.innerText = '3 - 4 anos'
-
-    const radioList3 = document.createElement('input')
-    radioList3.type = 'radio'
-    radioList3.name = 'periodo'+contador
-    radioList3.id = 'radioList3'+contador
-    radioList3.value = '5+ anos'
-
-    const labelRadioList3 = document.createElement('label')
-    labelRadioList3.htmlFor = 'radioList3'+contador
-    labelRadioList3.innerText = '5+ anos'
+    const idRadio3 = 'radioList3'+contador
+    const radioList3 = createInput(idRadio3, '5+ anos', 'periodo'+contador,'radio')
+    const labelRadioList3 = createLabel("5+ anos", idRadio3)
 
     //Adiciona todos os elementos de input na div para aparecer na tela html
-    divTec.appendChild(labelTec)
-    divTec.appendChild(inputTec)
-    divTec.appendChild(labelRadioList1)
-    divTec.appendChild(radioList1)
-    divTec.appendChild(labelRadioList2)
-    divTec.appendChild(radioList2)
-    divTec.appendChild(labelRadioList3)
-    divTec.appendChild(radioList3)
-
+    
     const botaoExcluir = document.createElement('button')
     botaoExcluir.innerHTML = "Remover essa tecnologia"
     botaoExcluir.id = "ID"+contador //Possui ID proprio para excluir somente a div parente a esse botão
     
-    divTec.appendChild(botaoExcluir) //Adiciona o botao de excluir na div dos inputs de tecnologias
+    divTec.append(
+        labelTec, inputTec, labelRadioList1, radioList1, labelRadioList2, radioList2, labelRadioList3, radioList3, botaoExcluir
+    )
     sectionTec.appendChild(divTec) //Adiciona a Div de tecnologias na seção
     
     //Evento para acionar o botão de excluir a linha de input
@@ -77,13 +65,14 @@ form.addEventListener('submit', function(ev){
 
     ev.preventDefault() //Metodo para não recarregar a pagina quando acionado o evento
     let tecnologias = [] //Gerado a variavel para armazenar todos os dados das tecnologias para imprimir na tela
+    let n = 0
 
     //For para percorrer todas as linhas de inputs das tecnologias e salvar os dados na variavel tecnologias
-    for(let n = 0; n < sectionTec.querySelectorAll('div').length;n++){
-        const idTecnologia = "#ID"+n+" > input[name='periodo"+n+"']:checked" //Variavel criada para ser o valor de busca no querySelector
-        const idNomeTec = "#ID"+n+" > input[id='input-tecnologia']" //Variavel criada para ser o valor de busca no querySelector
-        tecnologias.push("\nNome da Tecnologia: "+sectionTec.querySelector(idNomeTec).value+"\nPeriodo: "+sectionTec.querySelector(idTecnologia).value+"\n")
-    }
+    sectionTec.querySelectorAll('div').forEach(function(row){
+        tecnologias.push("\nNome da Tecnologia: "+sectionTec.querySelector("#"+row.id+" > input[id='input-tecnologia']").value+"\nPeriodo: "+sectionTec.querySelector("#"+row.id+" > input[name='periodo"+n+"']:checked").value+"\n")
+        n++
+    })
+    
     const nome = document.getElementById("name").value
     tecnologias = tecnologias.join("") //Transforma a lista em uma unica String separados por ""
     alert("Nome do Dev: "+nome+"\n\nTecnologias: "+tecnologias)
